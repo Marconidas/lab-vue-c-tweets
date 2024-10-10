@@ -1,4 +1,5 @@
 <script setup>
+import { defineProps } from 'vue';
 import User from '../components/User.vue';
 import ProfileImage from '../components/ProfileImage.vue';
 import Timestamp from '../components/Timestamp.vue';
@@ -6,24 +7,24 @@ import Message from '../components/Message.vue';
 import Actions from '../components/Actions.vue';
 
 const props = defineProps({
-  user: Object,
-  timestamp: String,
-  message: String
+  tweet: {
+    type: Object,
+    required: true
+  }
 });
-
 </script>
 
 <template>
   <div class="tweet">
-    <ProfileImage image="user.image" />
+    <ProfileImage :image="tweet.user.image" />
 
     <div class="body">
       <div class="top">
-        <User userData="user" />
-        <Timestamp time="timestamp" />
+        <User :userData="tweet.user" :userHandle="tweet.handle" />
+        <Timestamp :time="tweet.timestamp" />
       </div>
 
-      <Message message="message" />
+      <Message :message="tweet.message" />
       <Actions />
     </div>
 

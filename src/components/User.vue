@@ -1,6 +1,7 @@
+<script setup></script>
 <template>
     <span class="user">
-        <span class="name"> USER_NAME </span>
-        <span class="handle">@ USER_HANDLE</span>
+        <span class="name"> {{ userData }} </span>
+        <span class="handle">{{ userHandle }}</span>
     </span>
 </template>
